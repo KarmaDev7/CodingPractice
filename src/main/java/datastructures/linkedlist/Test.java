@@ -27,7 +27,12 @@ public class Test {
 
         linkedList.reverse();
 
+
         linkedList.printElements();
+
+        System.out.println("Node at 5th position is :"+linkedList.findNodeAtPosition(5).getValue());
+
+
 
 
     }

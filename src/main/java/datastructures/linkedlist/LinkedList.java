@@ -162,6 +162,31 @@ public class LinkedList {
 
     }
 
+
+    public Node findNodeAtPosition(int k){
+
+        if(k > size)
+            throw new NoSuchElementException();
+
+        Node nodeK = first;
+        Node currentNode = first;
+
+        while (k-1 > 0){
+            currentNode = currentNode.getNextNode();
+            k--;
+        }
+
+        while (currentNode !=null)
+        {
+            currentNode= currentNode.getNextNode();
+            nodeK = nodeK.getNextNode();
+        }
+
+        return nodeK;
+
+    }
+
+
     public Boolean contains(int value){
         return indexOf(value) != -1;
     }
