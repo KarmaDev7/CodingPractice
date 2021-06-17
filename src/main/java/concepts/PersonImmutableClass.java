@@ -5,12 +5,12 @@ import java.util.Map;
 
 public class PersonImmutableClass {
 
-    private String name;
-    private Map<String,Long> contactList;
+    private final String name;
+    private final Map<String,Long> contactList;
 
     public PersonImmutableClass(String name, Map<String, Long> contactList) {
 
-        this.name = name;
+
 
         Map<String,Long> tempMap = new HashMap<>();
 
@@ -20,12 +20,11 @@ public class PersonImmutableClass {
         }
 
 
-        this.contactList = contactList;
         this.contactList = tempMap;
+        this.name = name;
     }
 
-    public PersonImmutableClass() {
-    }
+
 
     public String getName() {
         return name;
