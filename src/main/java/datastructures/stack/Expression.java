@@ -33,7 +33,8 @@ public class Expression {
                  if (stack.isEmpty())  return false;
 
                 Character top = stack.pop();
-                if (bracketMatch(c, top))
+
+                if (!bracketMatch(c, top))
                     return false;
 
             }
