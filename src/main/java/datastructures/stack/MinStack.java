@@ -1,37 +1,44 @@
 package datastructures.stack;
 
+import java.util.EmptyStackException;
 import java.util.Objects;
 
-public class MinStack{
+// We need two stacks to implement a min stack.
+// One stack holds the values, the other stack
+// (called minStack) holds the minimums.
+public class MinStack {
 
     private Stack<Integer> mainStack;
 
     private Stack<Integer> minStack;
 
 
-    public MinStack(){
+    public MinStack() {
         mainStack = new Stack<>();
         minStack = new Stack<>();
     }
 
-    public void push(Integer element){
-        Integer top =element;
-            if(!minStack.isEmpty())
-             top = minStack.peek();
-
-            if(top > element)
-                minStack.push(element);
-            else
-                minStack.push(top);
-
+    public void push(Integer element) {
 
         mainStack.push(element);
+
+        if (minStack.isEmpty()) {
+            minStack.push(element);
+        } else if (element < minStack.peek())
+            minStack.push(element);
+
     }
 
-    public Integer pop(){
+    public Integer pop() {
+        if (mainStack.isEmpty())
+            throw new EmptyStackException();
 
-        minStack.pop();
-        return mainStack.pop();
+        Integer top = mainStack.pop();
+
+        if(top == minStack.peek())
+             minStack.pop();
+
+        return top;
     }
 
     public Integer getMin() {
