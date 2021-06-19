@@ -19,6 +19,7 @@ public class ArrayQueue {
     private Integer elements[];
 
     public ArrayQueue() {
+
         elements = new Integer[5];
 
         frontPointer = rearPointer = 0;
@@ -26,7 +27,7 @@ public class ArrayQueue {
 
     public void enqueue(int element) {
 
-        if (count == elements.length)
+        if (isFull())
             throw new StackOverflowError();
 
         this.elements[rearPointer] = element;
@@ -39,30 +40,33 @@ public class ArrayQueue {
 
     }
 
-    public void dequeue() {
+    public int dequeue() {
+        if (isEmpty())
+            throw new EmptyStackException();
+
+        int element = this.elements[frontPointer];
 
         this.elements[frontPointer] = null;
-
         frontPointer = (frontPointer + 1) % elements.length;
         count--;
 
-
+        return element;
     }
 
     public int peek() {
 
-        if (frontPointer == -1)
+        if (isEmpty())
             throw new EmptyStackException();
 
         return elements[frontPointer];
     }
 
     public boolean isEmpty() {
-        return frontPointer == rearPointer;
+        return count ==0;
     }
 
     public boolean isFull() {
-        return rearPointer == elements.length - 1;
+        return count == elements.length;
     }
 
     @Override
