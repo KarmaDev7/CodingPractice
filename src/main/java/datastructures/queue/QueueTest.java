@@ -15,6 +15,33 @@ public class QueueTest {
         queue.remove();
 
         System.out.println(queue);
+
+
+        /**
+         * Testing our own imlemented Queue
+         */
+
+        ArrayQueue arrayQueue = new ArrayQueue();
+        arrayQueue.enqueue(23);
+        arrayQueue.enqueue(21);
+        arrayQueue.enqueue(45);
+        arrayQueue.enqueue(34);
+        arrayQueue.enqueue(1);
+
+        System.out.println(arrayQueue.peek());
+        System.out.println(arrayQueue);
+
+        arrayQueue.dequeue();
+        System.out.println(arrayQueue);
+        arrayQueue.enqueue(12);
+
+
+        System.out.println(arrayQueue);
+        System.out.println(arrayQueue.peek());
+        arrayQueue.dequeue();
+
+        System.out.println(arrayQueue);
+
     }
 
 
