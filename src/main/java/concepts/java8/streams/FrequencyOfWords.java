@@ -24,7 +24,10 @@ public class FrequencyOfWords {
         Map<String,Integer> map= new HashMap<>();
 
         file.stream()
-                .collect(Collectors.toMap(w -> w.toLowerCase(), x -> 1, Integer::sum))
+                .collect(Collectors.
+                        toMap(w -> w.toLowerCase(),
+                                x -> 1,
+                                Integer::sum))
                         .entrySet()
                         .stream()
                         .forEach(x -> {

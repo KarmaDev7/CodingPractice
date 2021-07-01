@@ -3,7 +3,7 @@ package concepts;
 import java.util.HashMap;
 import java.util.Map;
 
-public class PersonImmutableClass {
+public final class PersonImmutableClass {
 
     private final String name;
     private final Map<String,Long> contactList;
@@ -52,6 +52,8 @@ public class PersonImmutableClass {
 
 
         PersonImmutableClass  person = new PersonImmutableClass(str.toString(), contactList);
+
+
     }
 
 
